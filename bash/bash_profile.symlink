@@ -1,0 +1,11 @@
+export PATH=$PATH:~/.dotfiles/bin
+
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+alias ls='ls -GFh'
+
+# only perform macOS-specific install
+if [ "$(uname)" == "Darwin"  ]; then
+    osascript -e "tell application \"Terminal\" to set the font name of window 1 to \"Consolas\""
+fi
