@@ -8,6 +8,6 @@ if [ "$(uname)" == "Darwin"  ]; then
     echo -e "\n\nRunning on OSX"
     pushd osx
     source install.sh
-    source fonts/consolas.sh
     popd
+    source fonts/consolas.sh
 fi
