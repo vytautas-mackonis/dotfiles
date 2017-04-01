@@ -12,6 +12,9 @@ defaults write com.apple.Finder AppleShowAllFiles -bool false
 echo "only use UTF-8 in Terminal.app"
 defaults write com.apple.terminal StringEncodings -array 4
 
+echo "distable finder in CMD+Tab"
+sudo /usr/libexec/PlistBuddy -c "add NSUIElement string 1" /System/Library/CoreServices/Finder.app/Contents/Info.plist
+
 echo "show the ~/Library folder in Finder"
 chflags nohidden ~/Library
 

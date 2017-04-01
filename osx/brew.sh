@@ -18,6 +18,7 @@ formulas=(
     tmux
     tree
     wget
+    tidy-html5
 )
 
 for formula in "${formulas[@]}"; do

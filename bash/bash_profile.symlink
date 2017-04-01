@@ -7,5 +7,6 @@ alias ls='ls -GFh'
 
 # only perform macOS-specific install
 if [ "$(uname)" == "Darwin"  ]; then
+    osascript -e "tell application \"Terminal\" to set background color of window 1 to {5632, 5632, 5632}"
     osascript -e "tell application \"Terminal\" to set the font name of window 1 to \"Consolas\""
 fi
