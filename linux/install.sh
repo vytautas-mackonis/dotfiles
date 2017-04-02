@@ -14,6 +14,7 @@ APT_PACKAGES=(
     tree
     wget
     tidy
+    xclip
         )
 
 YUM_PACKAGES=(
