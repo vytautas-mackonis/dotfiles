@@ -1,6 +1,6 @@
 # Reconstructed via infocmp from file: /usr/share/misc/terminfo
 # Install with: tic -x <filename>
-tmux-256color-italix|tmux with 256 colors,
+tmux-256color-italic|tmux with 256 colors,
     OTbs, OTpt, am, ccc@, hs, km, mir, msgr, xenl, AX, G0,
     colors#256, cols#80, it#8, lines#24, ncv@, pairs#32767, U8#1,
     acsc=++\,\,--..00``aaffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~,

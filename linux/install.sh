@@ -5,7 +5,6 @@ APT_GET_CMD=$(which apt-get)
 source fzf.sh
 
 APT_PACKAGES=(
-    gcc-c++
     make
     automake
     libtool
@@ -18,7 +17,6 @@ APT_PACKAGES=(
         )
 
 YUM_PACKAGES=(
-    gcc-c++
     make
     automake
     libtool
@@ -59,14 +57,9 @@ for package in "${NPM_PACKAGES[@]}"; do
     sudo npm install -g $package -y
 done
 
-#turning on diff-so-fancy for all git diff commands
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-git config --global color.diff-highlight.oldNormal "red bold"
-git config --global color.diff-highlight.oldHighlight "red bold 52"
-git config --global color.diff-highlight.newNormal "green bold"
-git config --global color.diff-highlight.newHighlight "green bold 22"
-
 if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     #stuff for ubuntu
+    source ../fonts/consolas-ubuntu.sh
+    source settings-ubuntu.sh
     source docker-ubuntu.sh
 fi

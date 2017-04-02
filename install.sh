@@ -12,7 +12,6 @@ if [ "$OS" == "Darwin"  ]; then
     pushd osx
     source install.sh
     popd
-    source fonts/consolas.sh
 fi
 
 if [ "$OS" == "Linux" ]; then
@@ -25,3 +24,14 @@ fi
 pushd vim
 source install.sh
 popd
+
+#installing terminal descriptors
+tic -x ~/.dotfiles/resources/tmux-256color-italic.terminfo
+tic -x ~/.dotfiles/resources/xterm-256color-italic.terminfo
+
+#turning on diff-so-fancy for all git diff commands
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global color.diff-highlight.oldNormal "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
