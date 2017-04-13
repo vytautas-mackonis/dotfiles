@@ -7,6 +7,8 @@ set directory=~/.vim/swapfiles//
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
+
+
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -50,6 +52,7 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <c-@> <c-space>
 
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'Shougo/vimproc.vim', { 'build': 'make' }
@@ -92,4 +95,8 @@ for prefix in ['i', 'n', 'v']
 endfor
 
 Plugin 'tomasiser/vim-code-dark'
+set t_Co=256
+set t_ut=
 colorscheme codedark
+hi MatchParen cterm=bold ctermbg=none ctermfg=none
+hi MatchParen term=underline cterm=underline gui=underline

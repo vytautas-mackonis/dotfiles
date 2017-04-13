@@ -9,6 +9,7 @@ APT_PACKAGES=(
     automake
     libtool
     vim
+    vim-gtk
     nodejs
     tmux
     tree
@@ -31,6 +32,7 @@ YUM_PACKAGES=(
 
 NPM_PACKAGES=(
     diff-so-fancy
+    node-gyp
         )
 
 if [[ ! -z $YUM_CMD ]]; then

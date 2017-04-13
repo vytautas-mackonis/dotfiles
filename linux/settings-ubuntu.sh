@@ -17,3 +17,6 @@ dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/background-color "
 #dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/use-theme-transparency "false"
 dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/use-system-font "false"
 dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/font "'Consolas 12'"
+
+#disable cursor blink
+gsettings set org.gnome.desktop.interface cursor-blink false
