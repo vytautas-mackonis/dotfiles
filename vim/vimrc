@@ -33,11 +33,8 @@ function! HtmlExpander()
 endfunction
 autocmd Filetype html inoremap <buffer> <expr> <CR> HtmlExpander()
 
-Plug 'tpope/vim-dispatch'
 Plug 'OmniSharp/omnisharp-vim'
-let g:OmniSharp_server_type = 'roslyn'
-let g:OmniSharp_prefer_global_sln = 1
-let g:OmniSharp_timeout = 10
+Plug 'tpope/vim-dispatch'
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
@@ -104,3 +101,5 @@ endfor
 hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
 silent! colorscheme codedark
+
+let g:OmniSharp_timeout = 10
