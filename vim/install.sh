@@ -12,12 +12,7 @@ if [ ! -f ~/.vim/autoload/plug.vim ]; then
 fi
 vim +PlugInstall +qall
 
-omnisharp compilation
-pushd ~/.vim/bundle/omnisharp-vim/server
-xbuild
-popd
-
-pushd ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn
-git checkout dev
-./build.sh
-popd
+#omnisharp compilation
+#pushd ~/.vim/bundle/omnisharp-vim/server
+#xbuild
+#popd

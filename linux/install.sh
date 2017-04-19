@@ -7,6 +7,10 @@ source fzf.sh
 APT_PACKAGES=(
     make
     automake
+    cmake
+    build-essential
+    python-dev
+    python3-dev
     libtool
     vim
     vim-gtk
@@ -34,6 +38,7 @@ YUM_PACKAGES=(
 NPM_PACKAGES=(
     diff-so-fancy
     node-gyp
+    typescript
         )
 
 if [[ ! -z $YUM_CMD ]]; then

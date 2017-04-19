@@ -19,6 +19,7 @@ formulas=(
     tree
     wget
     tidy-html5
+    cmake
 )
 
 for formula in "${formulas[@]}"; do

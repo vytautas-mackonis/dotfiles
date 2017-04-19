@@ -33,10 +33,13 @@ function! HtmlExpander()
 endfunction
 autocmd Filetype html inoremap <buffer> <expr> <CR> HtmlExpander()
 
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'OmniSharp/omnisharp-vim', { 'do': 'xbuild server/OmniSharp.sln' }
 Plug 'tpope/vim-dispatch'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --omnisharp-completer --tern-completer' }
+set completeopt-=preview
 
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 let g:AutoPairsMapSpace = 0
 Plug 'scrooloose/nerdtree'
 map <c-g> :NERDTreeToggle<CR>
@@ -98,8 +101,9 @@ for prefix in ['i', 'n', 'v']
     endfor
 endfor
 
+silent! colorscheme codedark
+
 hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
-silent! colorscheme codedark
 
 let g:OmniSharp_timeout = 10
