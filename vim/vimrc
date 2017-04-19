@@ -4,16 +4,13 @@ set number
 
 set directory=~/.vim/swapfiles//
 
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 
 
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 function! HtmlExpander()
     let line   = getline(".")
     let col    = col(".")
@@ -36,11 +33,17 @@ function! HtmlExpander()
 endfunction
 autocmd Filetype html inoremap <buffer> <expr> <CR> HtmlExpander()
 
-Plugin 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-dispatch'
+Plug 'OmniSharp/omnisharp-vim'
+let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_prefer_global_sln = 1
+let g:OmniSharp_timeout = 10
+
+Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 map <c-g> :NERDTreeToggle<CR>
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 nmap <c-space> :FZF<CR>
 nmap <c-@> <c-space>
 "imap <c-space> <c-x><c-o>
@@ -51,19 +54,19 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <c-@> <c-space>
 
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'Shougo/vimproc.vim', { 'build': 'make' }
-Plugin 'Quramy/tsuquyomi'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Quramy/tsuquyomi'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker."
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]"]
 
-Plugin 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -73,7 +76,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-call vundle#end()
+Plug 'tomasiser/vim-code-dark'
+set t_Co=256
+set t_ut=
+
+call plug#end()
 filetype plugin indent on
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab autoindent
@@ -94,9 +101,6 @@ for prefix in ['i', 'n', 'v']
     endfor
 endfor
 
-Plugin 'tomasiser/vim-code-dark'
-set t_Co=256
-set t_ut=
-colorscheme codedark
 hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
+silent! colorscheme codedark

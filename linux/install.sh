@@ -10,6 +10,7 @@ APT_PACKAGES=(
     libtool
     vim
     vim-gtk
+    vim-nox-py2
     nodejs
     tmux
     tree
@@ -65,4 +66,8 @@ if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     source ../fonts/consolas-ubuntu.sh
     source settings-ubuntu.sh
     source docker-ubuntu.sh
+    source mono-ubuntu.sh
+    source dotnet-ubuntu.sh
+
+    sudo update-alternatives --set vim /usr/bin/vim.nox-py2
 fi
