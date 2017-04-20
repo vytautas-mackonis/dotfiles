@@ -112,6 +112,7 @@ bind -t vi-copy 'y' copy-selection
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+if-shell "uname | grep -q Linux" "bind -t vi-copy y copy-pipe \"xclip -sel clip -i\""
 
 ##############################
 ### Color & Style Settings ###
