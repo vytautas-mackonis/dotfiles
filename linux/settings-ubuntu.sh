@@ -20,3 +20,8 @@ dconf write /org/gnome/terminal/legacy/profiles:/:$profile_id/font "'Consolas 12
 
 #disable cursor blink
 gsettings set org.gnome.desktop.interface cursor-blink false
+
+#numlock on startup
+GREETER_SETTING="greeter-setup-script=/usr/bin/numlockx on"
+GREETER_CONF="/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf"
+grep -q -F "$GREETER_SETTING" "$GREETER_CONF" || echo "$GREETER_SETTING" | sudo tee --append "$GREETER_CONF"

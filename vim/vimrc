@@ -1,5 +1,7 @@
 set nocompatible
 filetype off
+syntax on
+set exrc
 set number
 set relativenumber
 
@@ -39,6 +41,7 @@ Plug 'OmniSharp/omnisharp-vim'
 let g:OmniSharp_server_type = 'roslyn'
 let g:OmniSharp_timeout = 10
 let g:syntastic_cs_checkers = ['code_checker']
+Plug 'OrangeT/vim-csharp'
 
 Plug 'tpope/vim-dispatch'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --tern-completer' }
@@ -46,7 +49,8 @@ set completeopt-=preview
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_auto_stop_csharp_server = 0
 
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
 Plug 'scrooloose/nerdtree'
 map <c-g> :NERDTreeToggle<CR>
@@ -92,7 +96,6 @@ call plug#end()
 filetype plugin indent on
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab autoindent
-syntax on
 
 highlight Comment cterm=italic
 
