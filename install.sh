@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 echo "Installing dotfiles."
 
 INSTALL_DIR="$(dirname "$BASH_SOURCE")"
@@ -16,14 +17,18 @@ fi
 
 if [ "$OS" == "Linux" ]; then
     echo -e "\n\nRunning on Linux"
-    pushd linux
-    source install.sh
-    popd
+    (
+        set -e
+        cd linux
+        ./install.sh
+    )
 fi
 
-pushd vim
-source install.sh
-popd
+(
+    set -e
+    cd vim
+    ./install.sh
+)
 
 #installing terminal descriptors
 tic -x ~/.dotfiles/resources/tmux-256color-italic.terminfo

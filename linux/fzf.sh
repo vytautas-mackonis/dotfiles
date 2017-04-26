@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo "Installing/updating FZF"
 FZFDIR=~/.fzf
 if [ -d "$FZFDIR" ]; then
     pushd $FZFDIR

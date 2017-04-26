@@ -9,19 +9,20 @@ APT_PACKAGES=(
     automake
     cmake
     build-essential
+    curl
     python-dev
     python3-dev
     libtool
     vim
     vim-gtk
     vim-nox-py2
-    nodejs
     tmux
     tree
     wget
     tidy
     xclip
     numlockx
+    silversearcher-ag
         )
 
 YUM_PACKAGES=(
@@ -52,12 +53,11 @@ if [[ ! -z $YUM_CMD ]]; then
         sudo yum install $package -y
     done
 elif [[ ! -z $APT_GET_CMD ]]; then
+    sudo apt-get update
+    sudo apt-get install -y "${APT_PACKAGES[@]}"
     #node repository
     curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-
-    sudo apt-get update
-
-    sudo apt-get install -y "${APT_PACKAGES[@]}"
+    sudo apt-get install nodejs
 else
     echo "Error: unknown package system - cannot install packages"
     exit 1;
