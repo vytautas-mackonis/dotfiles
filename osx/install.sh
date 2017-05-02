@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-source ../fonts/consolas-osx.sh
+../fonts/consolas-osx.sh
 ./brew.sh
 ./settings.sh

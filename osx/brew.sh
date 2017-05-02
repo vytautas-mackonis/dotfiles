@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if test ! $(which brew); then
     echo "Installing homebrew"
@@ -20,6 +20,8 @@ formulas=(
     wget
     tidy-html5
     cmake
+    openssl
+    the_silver_searcher
 )
 
 for formula in "${formulas[@]}"; do
