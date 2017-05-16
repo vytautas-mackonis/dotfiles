@@ -3,6 +3,21 @@ set -e
 echo "Installing dotfiles."
 
 INSTALL_DIR="$(dirname "$BASH_SOURCE")"
+if [[ -f ~/.profile && (! -h ~/.profile) ]]; then
+    echo "Backing up .profile"
+    mv ~/.profile ~/.profile_old
+fi
+
+if [[ -f ~/.bash_profile && (! -h ~/.bash_profile) ]]; then
+    echo "Backing up .bash_profile"
+    mv ~/.bash_profile ~/.bash_profile_old
+fi
+
+if [[ -f ~/.bashrc && (! -h ~/.bashrc) ]]; then
+    echo "Backing up .bashrc"
+    mv ~/.bashrc ~/.bashrc_old
+fi
+
 source utils/link.sh
 
 OS="$(uname)"
