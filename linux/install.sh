@@ -23,6 +23,7 @@ APT_PACKAGES=(
     xclip
     numlockx
     silversearcher-ag
+    jq
         )
 
 YUM_PACKAGES=(
