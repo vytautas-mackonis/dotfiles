@@ -49,7 +49,6 @@ set completeopt-=preview
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_auto_stop_csharp_server = 0
 
-"Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
 Plug 'scrooloose/nerdtree'
@@ -69,8 +68,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
+Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker."
 
@@ -97,14 +100,6 @@ filetype plugin indent on
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab autoindent
 
-highlight Comment cterm=italic
-
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
-
-
 " Unbind the cursor keys in insert, normal and visual modes.
 for prefix in ['i', 'n', 'v']
     for key in ['<Up>', '<Down>', '<Left>', '<Right>']
@@ -113,6 +108,9 @@ for prefix in ['i', 'n', 'v']
 endfor
 
 silent! colorscheme codedark
+highlight Comment cterm=italic
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
