@@ -22,6 +22,8 @@ formulas=(
     cmake
     openssl
     the_silver_searcher
+    scala
+    sbt
 )
 
 for formula in "${formulas[@]}"; do
