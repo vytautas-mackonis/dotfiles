@@ -71,6 +71,7 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
+Plug 'derekwyatt/vim-scala'
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 
