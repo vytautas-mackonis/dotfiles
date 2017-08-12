@@ -75,7 +75,8 @@ if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     source docker-ubuntu.sh
     source mono-ubuntu.sh
     source dotnet-ubuntu.sh
-    sudo ./jre8-ubuntu.sh
+    sudo ./jdk8-ubuntu.sh
+    sudo ./sbt-ubuntu.sh
 
     sudo update-alternatives --set vim /usr/bin/vim.nox-py2
 fi
