@@ -12,6 +12,7 @@ APT_PACKAGES=(
     curl
     python-dev
     python3-dev
+    python3-venv
     libtool
     vim
     vim-gtk
