@@ -4,6 +4,7 @@ syntax on
 set exrc
 set number
 set relativenumber
+set backspace=indent,eol,start
 
 set directory=~/.vim/swapfiles//
 
@@ -78,10 +79,12 @@ let g:typescript_compiler_options = ''
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker."
 
-Plug 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"Plug 'vim-syntastic/syntastic'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+Plug 'w0rp/ale'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1

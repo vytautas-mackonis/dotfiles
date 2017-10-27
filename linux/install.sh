@@ -13,10 +13,8 @@ APT_PACKAGES=(
     python-dev
     python3-dev
     python3-venv
+    python3-pip
     libtool
-    vim
-    vim-gtk
-    vim-nox-py2
     tmux
     tree
     wget
@@ -78,6 +76,7 @@ if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     source dotnet-ubuntu.sh
     sudo ./jdk8-ubuntu.sh
     sudo ./sbt-ubuntu.sh
+    sudo ./vim-install.sh
 
     sudo update-alternatives --set vim /usr/bin/vim.nox-py2
 fi
