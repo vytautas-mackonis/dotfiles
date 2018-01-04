@@ -70,6 +70,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'ianks/vim-tsx'
@@ -119,3 +121,5 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
+
+autocmd FileType c,cpp,java,scala,js,ts,jsx,tsx,py,html,xml,json,cs,fs autocmd BufWritePre <buffer> %s/\s\+$//e
