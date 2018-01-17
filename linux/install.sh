@@ -79,6 +79,4 @@ if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     sudo ./vim-install.sh
     sudo ./docker-compose-ubuntu.sh
     sudo ./scalastyle-linux.sh
-
-    sudo update-alternatives --set vim /usr/bin/vim.nox-py2
 fi
