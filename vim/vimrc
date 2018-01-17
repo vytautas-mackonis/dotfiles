@@ -49,6 +49,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --tern-completer' }
 set completeopt-=preview
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_auto_stop_csharp_server = 0
+let g:ycm_python_binary_path = 'python3'
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
