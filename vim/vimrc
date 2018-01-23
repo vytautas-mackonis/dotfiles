@@ -99,6 +99,8 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected", "plain text isn't allowed in <head> elements"]
 
+Plug 'Vimjas/vim-python-pep8-indent'
+let g:pymode_indent = 0
 Plug 'tomasiser/vim-code-dark'
 set t_Co=256
 set t_ut=
