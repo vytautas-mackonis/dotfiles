@@ -56,7 +56,7 @@ elif [[ ! -z $APT_GET_CMD ]]; then
     sudo apt-get update
     sudo apt-get install -y "${APT_PACKAGES[@]}"
     #node repository
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     sudo apt-get install nodejs
 else
     echo "Error: unknown package system - cannot install packages"
