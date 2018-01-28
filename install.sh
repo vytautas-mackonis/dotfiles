@@ -57,3 +57,4 @@ git config --global color.diff-highlight.newHighlight "green bold 22"
 git config --global merge.tool vimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
+git config --global push.default simple
