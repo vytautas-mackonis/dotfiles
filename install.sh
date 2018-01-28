@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 echo "Installing dotfiles."
+source ./os_detect.sh
 
 INSTALL_DIR="$(dirname "$BASH_SOURCE")"
 if [[ -f ~/.profile && (! -h ~/.profile) ]]; then
@@ -20,17 +21,15 @@ fi
 
 source utils/link.sh
 
-OS="$(uname)"
-
 # only perform macOS-specific install
-if [ "$OS" == "Darwin"  ]; then
+if [ "$OS_FLAVOUR" == "osx"  ]; then
     echo -e "\n\nRunning on OSX"
     pushd osx
     source install.sh
     popd
 fi
 
-if [ "$OS" == "Linux" ]; then
+if [ "$OS_FLAVOUR" == "linux" ]; then
     echo -e "\n\nRunning on Linux"
     (
         set -e
