@@ -58,3 +58,6 @@ git config --global merge.tool vimdiff
 git config --global merge.conflictstyle diff3
 git config --global mergetool.prompt false
 git config --global push.default simple
+
+# removing that annoying sound on tab completion failure etc
+grep -q -F 'set bell-style none' ~/.inputrc || echo 'set bell-style none' >> ~/.inputrc
