@@ -57,6 +57,7 @@ if [ "$OS_NAME" = "Ubuntu" ]; then
     sudo ./sbt-ubuntu.sh
     sudo ./docker-compose-ubuntu.sh
     sudo ./scalastyle-linux.sh
+    sudo ./yarn-ubuntu.sh
 
     if [ $UBUNTU_WINDOWS -eq 1 ]; then
         sudo ./vim-from-source.sh
