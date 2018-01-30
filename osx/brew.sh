@@ -10,7 +10,7 @@ echo "=============================="
 
 formulas=(
     # flags should pass through the the `brew list check`
-    'macvim --with-override-system-vim'
+    'vim --with-override-system-vim --without-ruby --with-python3'
     diff-so-fancy
     fzf
     git
