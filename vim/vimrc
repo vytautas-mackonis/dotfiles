@@ -4,6 +4,7 @@ syntax on
 set exrc
 set number
 set relativenumber
+set visualbell
 set backspace=indent,eol,start
 
 set directory=~/.vim/swapfiles//
@@ -38,7 +39,8 @@ endfunction
 autocmd Filetype html inoremap <buffer> <expr> <CR> HtmlExpander()
 autocmd FileType cs set omnifunc=OmniSharp#Complete
 
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'OmniSharp/omnisharp-vim'
+Plug 'aignas/omnisharp-vim', { 'branch': 'feature/py3k' }
 let g:OmniSharp_server_type = 'roslyn'
 let g:OmniSharp_timeout = 10
 let g:syntastic_cs_checkers = ['code_checker']

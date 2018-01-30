@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-YUM_CMD=$(which yum)
 APT_GET_CMD=$(which apt-get)
 
 source fzf.sh
@@ -23,18 +22,7 @@ APT_PACKAGES=(
     numlockx
     silversearcher-ag
     jq
-        )
-
-YUM_PACKAGES=(
-    make
-    automake
-    libtool
-    vim
-    nodejs
-    epel-release
-    tmux
-    tree
-    wget
+    dc
         )
 
 NPM_PACKAGES=(
@@ -43,20 +31,11 @@ NPM_PACKAGES=(
     typescript
         )
 
-if [[ ! -z $YUM_CMD ]]; then
-    #node repository
-    curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
-
-    sudo yum update
-
-    for package in "${YUM_PACKAGES[@]}"; do
-        sudo yum install $package -y
-    done
-elif [[ ! -z $APT_GET_CMD ]]; then
+if [[ ! -z $APT_GET_CMD ]]; then
     sudo apt-get update
     sudo apt-get install -y "${APT_PACKAGES[@]}"
     #node repository
-    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
     sudo apt-get install nodejs
 else
     echo "Error: unknown package system - cannot install packages"
@@ -67,7 +46,7 @@ for package in "${NPM_PACKAGES[@]}"; do
     sudo npm install -g $package -y
 done
 
-if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
+if [ "$OS_NAME" = "Ubuntu" ]; then
     #stuff for ubuntu
     source ../fonts/consolas-ubuntu.sh
     source settings-ubuntu.sh
@@ -76,7 +55,13 @@ if [ "$(. /etc/os-release; echo $NAME)" = "Ubuntu" ]; then
     source dotnet-ubuntu.sh
     sudo ./jdk8-ubuntu.sh
     sudo ./sbt-ubuntu.sh
-    sudo ./vim-install.sh
     sudo ./docker-compose-ubuntu.sh
     sudo ./scalastyle-linux.sh
+    sudo ./yarn-ubuntu.sh
+
+    if [ $UBUNTU_WINDOWS -eq 1 ]; then
+        sudo ./vim-from-source.sh
+    else
+        sudo ./vim-install.sh
+    fi
 fi
