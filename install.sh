@@ -45,8 +45,8 @@ fi
 )
 
 #installing terminal descriptors
-tic -x ~/.dotfiles/resources/tmux-256color-italic.terminfo
-tic -x ~/.dotfiles/resources/xterm-256color-italic.terminfo
+# tic -x ~/.dotfiles/resources/tmux-256color-italic.terminfo
+# tic -x ~/.dotfiles/resources/xterm-256color-italic.terminfo
 
 #turning on diff-so-fancy for all git diff commands
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
@@ -60,4 +60,9 @@ git config --global mergetool.prompt false
 git config --global push.default simple
 
 # removing that annoying sound on tab completion failure etc
-grep -q -F 'set bell-style none' ~/.inputrc || echo 'set bell-style none' >> ~/.inputrc
+if [ -f ~/.inputrc ]; then
+    grep -q -F 'set bell-style none' ~/.inputrc || echo 'set bell-style none' >> ~/.inputrc
+else
+    echo 'set bell-style none' >> ~/.inputrc
+fi
+

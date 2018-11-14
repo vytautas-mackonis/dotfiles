@@ -113,7 +113,7 @@ bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 # bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 # bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
-if-shell "uname | grep -q Linux" "bind -t copy-mode-vi y copy-pipe \"xclip -sel clip -i\""
+# if-shell "uname | grep -q Linux" "bind -t copy-mode-vi y copy-pipe \"xclip -sel clip -i\""
 
 ##############################
 ### Color & Style Settings ###

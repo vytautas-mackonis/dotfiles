@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 SCALASTYLE_JAR=scalastyle_2.11-1.0.0-batch.jar
 SCALASTYLE_URL=https://oss.sonatype.org/content/repositories/releases/org/scalastyle/scalastyle_2.11/1.0.0/$SCALASTYLE_JAR
@@ -7,8 +8,8 @@ SCALASTYLE_PATH=$SCALASTYLE_DIR/$SCALASTYLE_JAR
 SCALASTYLE_COMMAND="java -jar $SCALASTYLE_PATH \"\$@\""
 SCALASTYLE_SCRIPT=/usr/bin/scalastyle
 
-mkdir /opt/scalastyle
-wget -O /opt/scalastyle/$SCALASTYLE_JAR $SCALASTYLE_URL
+mkdir -p /opt/scalastyle
+wget -q -O /opt/scalastyle/$SCALASTYLE_JAR $SCALASTYLE_URL
 
 cat > $SCALASTYLE_SCRIPT <<EOF
 #/usr/bin/env bash

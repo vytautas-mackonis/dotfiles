@@ -4,6 +4,8 @@ if [ "$OS" == "Darwin"  ]; then
 elif [ "$OS" == "Linux" ]; then
     export OS_FLAVOUR="linux"
     export OS_NAME="$(. /etc/os-release; echo $NAME)"
+    export OS_VERSION_ID="$(. /etc/os-release; echo $VERSION_ID)"
+    export OS_MAJOR_VERSION="$(. /etc/os-release; echo $VERSION_ID | cut -d. -f1)"
     if grep -q Microsoft /proc/version; then
         export UBUNTU_WINDOWS=1
     else
