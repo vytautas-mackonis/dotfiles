@@ -25,4 +25,5 @@ gsettings set org.gnome.desktop.interface cursor-blink false
 #numlock on startup
 GREETER_SETTING="greeter-setup-script=/usr/bin/numlockx on"
 GREETER_CONF="/usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf"
-grep -q -F "$GREETER_SETTING" "$GREETER_CONF" || echo "$GREETER_SETTING" | sudo tee --append "$GREETER_CONF"
+grep -q -F "$GREETER_SETTING" "$GREETER_CONF" || echo "$GREETER_SETTING" | tee --append "$GREETER_CONF"
+echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sysctl -p

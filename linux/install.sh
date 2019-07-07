@@ -25,6 +25,8 @@ APT_PACKAGES=(
     silversearcher-ag
     jq
     dc
+    compizconfig-settings-manager
+    compiz-plugins-extra
         )
 
 NPM_PACKAGES=(

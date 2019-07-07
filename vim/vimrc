@@ -43,15 +43,18 @@ autocmd FileType cs set omnifunc=OmniSharp#Complete
 "Plug 'aignas/omnisharp-vim', { 'branch': 'feature/py3k' }
 let g:OmniSharp_server_type = 'roslyn'
 let g:OmniSharp_timeout = 10
-let g:syntastic_cs_checkers = ['code_checker']
 Plug 'OrangeT/vim-csharp'
 
 Plug 'tpope/vim-dispatch'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --ts-completer' }
 set completeopt-=preview
 let g:ycm_auto_start_csharp_server = 0
 let g:ycm_auto_stop_csharp_server = 0
 let g:ycm_python_binary_path = 'python3'
+let g:ycm_filter_diagnostics = {
+\       "javascript": { "regex":  [".*"]}
+\}
+let g:ycm_enable_diagnostic_signs = 0
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
@@ -83,23 +86,12 @@ let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker."
 
-"Plug 'vim-syntastic/syntastic'
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
+let g:ale_completion_enabled = 0
+let g:ale_linters = {
+\       'javascript': ['eslint', 'flow', 'flow-language-server']
+\}
 Plug 'w0rp/ale'
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected", "plain text isn't allowed in <head> elements"]
 
 Plug 'Vimjas/vim-python-pep8-indent'
 let g:pymode_indent = 0
