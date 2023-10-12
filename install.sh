@@ -33,8 +33,9 @@ if [ "$OS_FLAVOUR" == "linux" ]; then
     echo -e "\n\nRunning on Linux"
     (
         set -e
-        cd linux
+	pushd linux
         ./install.sh
+	popd
     )
 fi
 

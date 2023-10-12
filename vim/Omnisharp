@@ -1,3 +1,0 @@
-#!/bin/bash
-dotnet ~/.vim/bundle/omnisharp-vim/omnisharp-roslyn/artifacts/publish/OmniSharp/default/netcoreapp1.1/OmniSharp.dll "$@"
-#mono "/home/vytautas/.vim/bundle/omnisharp-vim/omnisharp-roslyn/artifacts/publish/OmniSharp/default/net46/OmniSharp.exe" "$@"

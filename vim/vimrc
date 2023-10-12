@@ -12,6 +12,7 @@ set directory=~/.vim/swapfiles//
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 call plug#begin('~/.vim/bundle')
 
@@ -39,22 +40,18 @@ endfunction
 autocmd Filetype html inoremap <buffer> <expr> <CR> HtmlExpander()
 autocmd FileType cs set omnifunc=OmniSharp#Complete
 
-"Plug 'OmniSharp/omnisharp-vim'
-"Plug 'aignas/omnisharp-vim', { 'branch': 'feature/py3k' }
-let g:OmniSharp_server_type = 'roslyn'
-let g:OmniSharp_timeout = 10
-Plug 'OrangeT/vim-csharp'
-
 Plug 'tpope/vim-dispatch'
-Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --ts-completer' }
-set completeopt-=preview
-let g:ycm_auto_start_csharp_server = 0
-let g:ycm_auto_stop_csharp_server = 0
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_filter_diagnostics = {
-\       "javascript": { "regex":  [".*"]}
-\}
-let g:ycm_enable_diagnostic_signs = 0
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+Plug 'deoplete-plugins/deoplete-jedi'
+" <TAB> completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsMapSpace = 0
@@ -63,13 +60,6 @@ map <c-g> :NERDTreeToggle<CR>
 Plug 'junegunn/fzf.vim'
 nmap <c-space> :FZF<CR>
 nmap <c-@> <c-space>
-"imap <c-space> <c-x><c-o>
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <c-@> <c-space>
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -91,6 +81,11 @@ let g:ale_completion_enabled = 0
 let g:ale_linters = {
 \       'javascript': ['eslint', 'flow', 'flow-language-server']
 \}
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'css': ['prettier'],
+\}
 Plug 'w0rp/ale'
 
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -104,13 +99,6 @@ filetype plugin indent on
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab autoindent
 
-" Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['i', 'n', 'v']
-    for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-        exe prefix . "noremap " . key . " <Nop>"
-    endfor
-endfor
-
 silent! colorscheme codedark
 highlight Comment cterm=italic
 autocmd QuickFixCmdPost [^l]* nested cwindow
@@ -120,3 +108,6 @@ hi MatchParen cterm=bold ctermbg=none ctermfg=none
 hi MatchParen term=underline cterm=underline gui=underline
 
 autocmd FileType c,cpp,java,scala,js,ts,jsx,tsx,py,html,xml,json,cs,fs autocmd BufWritePre <buffer> %s/\s\+$//e
+set completeopt=menuone,preview,noselect
+let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
