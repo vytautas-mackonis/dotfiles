@@ -15,6 +15,9 @@ if [ "$OS_NAME" = "Ubuntu" ]; then
 fi
 
 APT_PACKAGES=(
+    build-essential
+    make
+    unzip
     tmux
     tree
     wget
