@@ -17,6 +17,7 @@ fi
 APT_PACKAGES=(
     build-essential
     make
+    cmake
     unzip
     tmux
     tree
