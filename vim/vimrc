@@ -57,6 +57,7 @@ let g:AutoPairsMapSpace = 0
 Plug 'scrooloose/nerdtree'
 map <c-g> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nmap <c-space> :FZF<CR>
 nmap <c-@> <c-space>

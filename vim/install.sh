@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
 DOTFILES=$HOME/.dotfiles
 
 mkdir -p ~/.vim
@@ -14,3 +15,4 @@ vim +PlugInstall +qall
 CALLER=$(who -m | awk '{print $1;}')
 echo $CALLER
 chown -R $CALLER ~/.vim
+PIP_BREAK_SYSTEM_PACKAGES=1 pip3 install pynvim

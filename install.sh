@@ -19,6 +19,11 @@ if [[ -f ~/.bashrc && (! -h ~/.bashrc) ]]; then
     mv ~/.bashrc ~/.bashrc_old
 fi
 
+if [[ -f ~/.zshrc && (! -h ~/.zshrc) ]]; then
+    echo "Backing up .zshrc"
+    mv ~/.zshrc ~/.zshrc_old
+fi
+
 source utils/link.sh
 
 # only perform macOS-specific install

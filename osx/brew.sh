@@ -10,8 +10,8 @@ echo "=============================="
 
 formulas=(
     # flags should pass through the the `brew list check`
-    'vim --with-override-system-vim --without-ruby --with-python3'
-    diff-so-fancy
+    vim
+    # diff-so-fancy
     fzf
     git
     reattach-to-user-namespace
@@ -24,6 +24,7 @@ formulas=(
     the_silver_searcher
     scala
     sbt
+    node
 )
 
 for formula in "${formulas[@]}"; do

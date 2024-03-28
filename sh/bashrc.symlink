@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+export PATH=$PATH:/usr/local/bin:~/.dotfiles/bin
+
+export MYPS='$(echo -n "${PWD/#$HOME/~}" | awk -F "/" '"'"'{
+if (length($0) > 20) { if (NF>4) print $1 "/" $2 "/.../" $(NF-1) "/" $NF;
+else if (NF>3) print $1 "/" $2 "/.../" $NF;
+else print $1 "/.../" $NF; }
+else print $0;}'"'"')'
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+
+# only perform macOS-specific install
+OS="$(uname)"                                                                                                                                                                                                                                    
+if [[ "$OS" == "Darwin"  ]]; then   
+    osascript -e "tell application \"Terminal\" to set background color of window 1 to {5632, 5632, 5632}"
+    osascript -e "tell application \"Terminal\" to set the font name of window 1 to \"Consolas\""
+
+    autoload -Uz vcs_info
+    precmd_vcs_info() { vcs_info }
+    precmd_functions+=( precmd_vcs_info )
+    setopt prompt_subst
+    zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+    zstyle ':vcs_info:*' enable git
+    export PROMPT='%F{cyan}%n%f@%F{green}%m%f:%F{yellow}$(eval "echo ${MYPS}")%f$ '
+    export RPROMPT=\$vcs_info_msg_0_
+
+    alias ls='ls -G'
+else
+    export PS1='\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]$(eval "echo ${MYPS}")\[\033[m\]\$ '
+    alias ls='ls -GFh --color=auto'
+fi
+
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

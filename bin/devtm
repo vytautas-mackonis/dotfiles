@@ -1,2 +1,13 @@
 #!/usr/bin/env bash
-tmux -f ~/.dev.tmux.conf attach
+# tmux -f ~/.dev.tmux.conf attach
+# tmux source-file ~/.tmux.conf
+set -e
+tmux new-session -A -s dev -n ide -x "$(tput cols)" -y "$(tput lines)" -d
+tmux split-window -v -t dev
+tmux select-pane -t 1
+tmux split-window -h -t dev
+tmux new-window -n shell
+tmux select-window -t dev:1
+tmux select-pane -t 1
+tmux resize-pane -D 10
+tmux attach-session -d
