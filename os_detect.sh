@@ -14,3 +14,4 @@ elif [ "$OS" == "Linux" ]; then
 else
     export OS_FLAVOUR="unsupported"
 fi
+echo "Detected OS: flavour - $OS_FLAVOUR, name - $OS_NAME, major version - $OS_MAJOR_VERSION" 
